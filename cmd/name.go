@@ -1,6 +1,7 @@
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
 	"io/ioutil"
 
@@ -18,11 +19,7 @@ var nameCmd = &cobra.Command{
 }
 
 func hexToName(args []string) {
-	var hm map[string] string
-}
-
-func init() {
-	rootCmd.AddCommand(nameCmd)
+	var hm map[string]string
 
 	// read json file
 	data, err := ioutil.ReadFile("colornames.min.json")
@@ -30,6 +27,19 @@ func init() {
 	if err != nil {
 		fmt.Printf("Error while reading the file %v", err)
 	}
+
+	_ = json.Unmarshal(data, &hm)
+
+	name, ok := hm[args[0]]
+	if ok {
+		fmt.Printf("Name: %s, Hex: %s\n", name, args[0])
+	} else {
+		fmt.Println("Name Not Found.")
+	}
+}
+
+func init() {
+	rootCmd.AddCommand(nameCmd)
 
 	// Here you will define your flags and configuration settings.
 
