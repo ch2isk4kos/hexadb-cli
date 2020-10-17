@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"io/ioutil"
 
 	"github.com/spf13/cobra"
 )
@@ -22,6 +23,13 @@ func hexToName(args []string) {
 
 func init() {
 	rootCmd.AddCommand(nameCmd)
+
+	// read json file
+	data, err := ioutil.ReadFile("colornames.min.json")
+
+	if err != nil {
+		fmt.Printf("Error while reading the file %v", err)
+	}
 
 	// Here you will define your flags and configuration settings.
 
