@@ -23,7 +23,6 @@ func hexToName(args []string) {
 
 	// read json file
 	data, err := ioutil.ReadFile("colornames.min.json")
-
 	if err != nil {
 		fmt.Printf("Error while reading the file %v", err)
 	}
@@ -32,7 +31,7 @@ func hexToName(args []string) {
 
 	name, ok := hm[args[0]]
 	if ok {
-		fmt.Printf("Name: %s, Hex: %s\n", name, args[0])
+		fmt.Printf("\nName: %s, Hex: %s\n\n", name, args[0])
 	} else {
 		fmt.Println("Name Not Found.")
 	}
