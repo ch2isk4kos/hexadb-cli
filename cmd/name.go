@@ -16,8 +16,12 @@ var nameCmd = &cobra.Command{
 	},
 }
 
+func hexToName(args []string) {
+	var hm map[string] string
+}
+
 func init() {
-	rootCmd.:AddCommand(nameCmd)
+	rootCmd.AddCommand(nameCmd)
 
 	// Here you will define your flags and configuration settings.
 
