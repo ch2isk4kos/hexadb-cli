@@ -46,10 +46,10 @@ func add(args []string) {
 		fmt.Printf("\n\nHex Already Rxists: %s\n", hexName)
 	} else {
 		hexMap[hex] = color
-
-		hexJSON, _ := json.Marshal(hexMap)
-
-		err = ioutil.WriteFile("colornames.min.json", hexJSON, 0777)
+		
+		json, _ := json.Marshal(hexMap)
+		
+		err = ioutil.WriteFile("colornames.min.json", json, 0777)
 		if err != nil {
 			fmt.Printf("\nError Writing File: %v\n\n", err)
 		}
