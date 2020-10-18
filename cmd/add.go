@@ -29,7 +29,7 @@ func add(args []string) {
 	color := args[1]
 
 	// read json
-	data, err := ioutil.ReadFile("colornames.min.js")
+	data, err := ioutil.ReadFile("colornames.min.json")
 	if err != nil {
 		fmt.Printf("Error Writing File: %v", err)
 	}
