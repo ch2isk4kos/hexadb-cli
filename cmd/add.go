@@ -23,10 +23,6 @@ to quickly create a Cobra application.`,
 	},
 }
 
-func init() {
-	rootCmd.AddCommand(addCmd)
-}
-
 // add hexadecimal command
 func add(args []string) {
 	hex := args[0]
@@ -60,4 +56,9 @@ func add(args []string) {
 
 		fmt.Printf("\nHex Added: %v\n\n", color)
 	}
+}
+
+
+func init() {
+	rootCmd.AddCommand(addCmd)
 }
